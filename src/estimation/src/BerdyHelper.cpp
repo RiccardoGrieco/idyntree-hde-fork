@@ -20,7 +20,6 @@
 #include <iDynTree/Model/Traversal.h>
 #include <iDynTree/Sensors/Sensors.h>
 #include <iDynTree/Sensors/AllSensorsTypes.h>
-#include <iDynTree/KinDynComputations.h>
 
 #include <iDynTree/Estimation/ExternalWrenchesEstimation.h>
 
@@ -1516,8 +1515,7 @@ bool BerdyHelper::initBerdyFloatingBase()
         // Non-collocated wrenches dynamic variables include 6*nrOfLinks for the net external wrenches
         m_nrOfDynamicalVariables = 6*m_model.getNrOfLinks();
 
-        //TODO[YESHI]: Double check this
-        m_nrOfDynamicEquations = 6*m_model.getNrOfLinks();
+        m_nrOfDynamicEquations = 0;
     }
     else
     {
